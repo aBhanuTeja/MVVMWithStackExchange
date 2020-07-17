@@ -9,14 +9,17 @@
 import Foundation
 
 enum APIURL {
-    static let BASE_URL = "https://api.stackexchange.com/2.2/"
+    static let BASE_URL = "https://api.stackexchange.com/2.2/questions"
     
     case getAllQuestions
+    case getAnsweredBy
     
     var apiString: String {
         switch self {
         case .getAllQuestions:
-            return APIURL.BASE_URL + "questions?order=desc&sort=week&site=stackoverflow"
+            return APIURL.BASE_URL + "?order=desc&sort=week&site=stackoverflow"
+        case .getAnsweredBy:
+            return "/answers?order=desc&sort=votes&site=stackoverflow"
         }
     }
 }

@@ -23,9 +23,9 @@ struct InteractionManager {
         })
     }
     
-    func getAnsweredByIM(completion: @escaping (GetAnsweredByResponse?)->()) {
+    func getAnsweredByIM(questionID: Int, completion: @escaping (GetAnsweredByResponse?)->()) {
         NetworkManager.sharedService.methodType(requestType: .GET,
-                                    urlString: APIURL.getAllQuestions.apiString,
+                                    urlString: APIURL.BASE_URL + "/\(questionID)" + APIURL.getAnsweredBy.apiString,
                                     params: nil,
                                     completion: { (response, status) in
                                         DispatchQueue.main.async {

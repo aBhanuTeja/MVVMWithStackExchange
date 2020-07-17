@@ -23,7 +23,8 @@ class AnsweredByViewController: UIViewController {
     
     private func getAnsweredByData() {
         ActivityIndicator.sharedIndicator.showLoadingIndicator(onView: view)
-        viewModel.getAnsweredByVM(completion: { [weak self] in
+        viewModel.getAnsweredByVM(questionID: selectedQuestion!.questionID!,
+                                  completion: { [weak self] in
             DispatchQueue.main.async {
                 self?.answeredByTableView.reloadData()
                 ActivityIndicator.sharedIndicator.hideLoadingIndicator()

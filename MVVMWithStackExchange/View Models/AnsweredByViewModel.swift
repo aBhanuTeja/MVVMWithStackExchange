@@ -24,8 +24,8 @@ class AnsweredByViewModel {
         numberOfRows = response.items?.count ?? 0
     }
     
-    func getAnsweredByVM(completion: @escaping () -> ()){
-        InteractionManager().getAnsweredByIM(completion: { (result) in
+    func getAnsweredByVM(questionID: Int, completion: @escaping () -> ()){
+        InteractionManager().getAnsweredByIM(questionID: questionID, completion: { (result) in
             self.prepareTableDataSource(response: result!)
             completion()
         })
