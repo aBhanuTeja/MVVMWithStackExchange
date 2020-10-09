@@ -39,7 +39,7 @@ class NetworkManager {
             print("Please check your Internet Connection")
             return
         }
-        print("URL =====>\(urlString)")
+        //print("URL =====>\(urlString)")
         guard let url = URL(string: urlString) else {
             print("Something went wrong")
             return
